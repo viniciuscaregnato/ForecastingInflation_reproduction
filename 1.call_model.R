@@ -41,16 +41,16 @@ for(i in 1:12){
 
 #cria matriz forecasts 
 
-forecasts = Reduce(cbind,lapply(model_list, function(x)head(x$forecast,nwindows)))
+forecasts_4lags = Reduce(cbind,lapply(model_list, function(x)head(x$forecast,nwindows)))
 
 
 
 # o accumulate_model calcula as diagonais, sendo assim, os valores de previsao de 3 e 6 meses e adiciona as colunas referetnes
-forecasts = accumulate_model(forecasts)
+forecasts_4lags = accumulate_model(forecasts)
 
-View(forecasts)
+View(forecasts_4lags)
 
-save(forecasts,file = paste("forecasts/",model_name,".rda",sep = ""))
+save(forecasts_4lags,file = paste("forecasts/",model_name,".rda",sep = ""))
 
 
 plot(tail(data[,"CPIAUCSL"],312),type = "l")
