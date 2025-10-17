@@ -27,7 +27,7 @@ png("C:/Users/xxx/CSFE_results/CSFE_h1.png",
 
 matplot(dates,  CSFE_h1, type="l", col=1:length(model_files), lty=1,
         xlab="Forecast", ylab="CSFE_h1")
-anos <- seq(from = min(datas), to = max(datas), by = "5 years")
+anos <- seq(from = min(dates), to = max(dates), by = "5 years")
 axis.Date(side = 1, at = anos, format = "%Y")
 
 legend("topleft", legend=colnames(CSFE_h1), col=1:ncol(CSFE_h1),
@@ -46,7 +46,7 @@ png("C:/Users/xxx/CSFE_results/CSFE_h3.png",
 
 matplot(dates,  CSFE_h3, type="l", col=1:length(model_files), lty=1,
         xlab="Forecast", ylab="CSFE_h3")
-anos <- seq(from = min(datas), to = max(datas), by = "5 years")
+anos <- seq(from = min(dates), to = max(dates), by = "5 years")
 axis.Date(side = 1, at = anos, format = "%Y")
 
 legend("topleft", legend=colnames(CSFE_h1), col=1:ncol(CSFE_h1),
@@ -65,7 +65,7 @@ png("C:/Users/xxx/CSFE_results/CSFE_h6.png",
 
 matplot(dates,  CSFE_h6, type="l", col=1:length(model_files), lty=1,
         xlab="Forecast", ylab="CSFE_h6")
-anos <- seq(from = min(datas), to = max(datas), by = "5 years")
+anos <- seq(from = min(dates), to = max(dates), by = "5 years")
 axis.Date(side = 1, at = anos, format = "%Y")
 
 legend("topleft", legend=colnames(CSFE_h1), col=1:ncol(CSFE_h1),
@@ -84,7 +84,7 @@ png("C:/Users/xxx/CSFE_results/CSFE_h12.png",
 
 matplot(dates,  CSFE_h12, type="l", col=1:length(model_files), lty=1,
         xlab="Forecast", ylab="CSFE_h12")
-anos <- seq(from = min(datas), to = max(datas), by = "5 years")
+anos <- seq(from = min(dates), to = max(dates), by = "5 years")
 axis.Date(side = 1, at = anos, format = "%Y")
 
 legend("topleft", legend=colnames(CSFE_h1), col=1:ncol(CSFE_h1),
@@ -103,9 +103,14 @@ save(CSFE_h12,file = "csfe_results/h12.rda")
 # Para visualizar as curvas ####
 
 load("csfe_results/h12.rda")
-matplot(1:nrow(CSFE_h12),  CSFE_h12, type="l", col=1:length(model_files), lty=1,
+matplot(dates,  CSFE_h12, type="l", col=1:length(model_files), lty=1,
         xlab="Forecast", ylab="CSFE_h12")
+
+anos <- seq(from = min(dates), to = max(dates), by = "5 years")
+axis.Date(side = 1, at = anos, format = "%Y")
+
 legend("topleft", legend=colnames(CSFE_h1), col=1:ncol(CSFE_h1),
        lty=1, cex=0.50, bty="n")
+
 
 
